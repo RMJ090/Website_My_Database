@@ -1,0 +1,5 @@
+# Jangan ikut commit folder/folder ini
+.vscode/
+.venv/
+__pycache__/
+*.pyc

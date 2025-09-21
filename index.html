@@ -1,932 +1,909 @@
-        <!DOCTYPE html>
-        <html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>My Database</title>
-            <style>
-                /* Import Google Font */
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Database</title>
+    <style>
+        /* Import Google Font */
+        
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
         body {
-        margin: 0;
-        font-family: Poppins, sans-serif;
-        background: #f5f7fa;
-        /* abu muda modern */
-        color: #1e293b;
+            margin: 0;
+            font-family: Poppins, sans-serif;
+            background: #f5f7fa;
+            /* abu muda modern */
+            color: #1e293b;
         }
         /* ================= NAVBAR ================= */
-
-          .navbar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          background: linear-gradient(90deg, #3b82f6, #9333ea);
-          /* 💡 biru ke ungu */
-          padding: 12px 24px;
-          color: white;
-          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-          line-height: 50px;
-          }
-
-          .logo {
-          font-size: 28px;
-          font-weight: bold;
-          color: #FFD700;
-          /* 💡 emas */
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          transition: 0.3s;
-          }
-
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #3b82f6, #9333ea);
+            /* 💡 biru ke ungu */
+            padding: 12px 24px;
+            color: white;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+            line-height: 50px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #FFD700;
+            /* 💡 emas */
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        
         .logo:hover {
-        transform: translateY(-3px);
+            transform: translateY(-3px);
         }
-
         /* Default (desktop) */
-
+        
         .menu {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-        margin: 0;
-        padding: 0;
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
         }
-
+        
         .menu li a {
-        font-size: 16px;
-        text-decoration: none;
-        color: white;
-        font-weight: 500;
-        transition: all 0.3s ease;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
-
+        
         .menu li a:hover {
-        color: #facc15;
-        /* 💡 kuning cerah */
-        text-shadow: 0 2px 10px rgba(255, 255, 255, 0.6);
-        transform: translateY(-5px);
+            color: #facc15;
+            /* 💡 kuning cerah */
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.6);
+            transform: translateY(-5px);
         }
-
         /* Hamburger menu */
-
+        
         .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        gap: 4px;
-        }
-
-        .hamburger div {
-        width: 25px;
-        height: 3px;
-        background: white;
-        border-radius: 2px;
-        }
-
-
-        /* ================= FILE EXCEL ================= */
-
-                                                              .row {
-                                                              display: flex;
-                                                              flex-wrap: wrap;
-                                                              gap: 20px;
-                                                              margin: 20px;
-                                                              }
-
-                                                              .col {
-                                                              background: linear-gradient(135deg, #f9fafb, #e0f2fe);
-                                                              border-radius: 12px;
-                                                              padding: 10px 15px;
-                                                              flex: 1 1 300px;
-                                                              box-shadow: 0 0 15px rgba(0,0,0,0.15);
-                                                              transition: all 0.4s ease; /* smooth transition */
-                                                              }
-
-                                                              .col h2 {
-                                                              color: #1e3a8a;
-                                                              font-size: 22px;
-                                                              font-family: 'Poppins', sans-serif; /* font modern */
-                                                              font-weight: 600;
-                                                              margin-bottom: 12px;
-                                                              text-shadow: 1px 1px 3px rgba(0,0,0,0.2); /* bayangan lembut */
-                                                              border-left: 4px solid #1e3a8a; /* garis samping */
-                                                              padding-left: 10px;
-                                                              transition: all 0.3s ease; /* animasi halus */
-                                                              margin-top: 10px;
-                                                              }
-
-                                                              .col h2:hover {
-                                                              color: #3b82f6; /* berubah warna saat hover */
-                                                              transform: translateX(5px); /* sedikit bergeser */
-                                                              text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-                                                              }
-
-                                                              .col a {
-                                                              font-size: 14px;
-                                                              display: block;
-                                                              background: #f9fafb;
-                                                              padding: 10px;
-                                                              margin-bottom: 8px;
-                                                              border-radius: 8px;
-                                                              color: #1e293b;
-                                                              text-decoration: none;
-                                                              transition: all 0.3s ease;
-                                                              box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-                                                              }
-
-                                                              .col a:hover {
-                                                              background: linear-gradient(90deg, #3b82f6, #10b981);
-                                                              color: white;
-                                                              transform: scale(1.03);
-                                                              box-shadow: 0 5px 15px rgba(0,0,0,0.25);
-                                                              }
-
-                                                              /* ================= SMOOTH HOVER ================= */
-                                                              .col:hover {
-                                                              transform: scale(1.03); /* scale ringan */
-                                                              box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-                                                              background: linear-gradient(135deg, #dbeafe, #a7f3d0); /* gradient halus */
-                                                              }
-
-
-
-
-
-
-        /* ================= GOOGLE SHEET PREVIEW ================= */
-
-        .content {
-        background: linear-gradient(135deg, #f9fafb, #e0f2fe);
-        border-radius: 12px;
-        margin: 20px;
-        padding: 10px 15px;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .content h2 {
-        color: #1e3a8a;
-        font-size: 22px;
-        font-family: 'Poppins', sans-serif; /* font modern */
-        font-weight: 600;
-        margin-bottom: 20px;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.2); /* bayangan lembut */
-        border-left: 4px solid #1e3a8a; /* garis samping */
-        padding-left: 10px;
-        transition: all 0.3s ease; /* animasi halus */
-
-        }
-
-        .content h2:hover {
-        color: #3b82f6; /* berubah warna saat hover */
-        transform: translateX(5px); /* sedikit bergeser */
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-        }
-
-        .sheet-layout {
-        display: flex;
-        gap: 10px;
-        }
-
-        .sheet-list {
-        flex: 1;
-        max-width: 280px;
-        background: #f9fafb;
-        padding: 12px;
-        border-radius: 12px;
-        box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.3);
-        transition: all 0.4s ease;
-        /* smooth transition */
-
-        }
-
-        .sheet-list p {
-        padding: 10px;
-        margin: 10px 0;
-        cursor: pointer;
-        border-radius: 8px;
-        font-size: 14px;
-        background: white;
-        color: #1e293b;
-        transition: all 0.3s ease;
-        /* smooth transition */
-        box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.3);
-
-        }
-
-        .sheet-list p:hover {
-        background: linear-gradient(90deg, #3b82f6, #10b981);
-        color: white;
-        transform: scale(1.03);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-
-
-        }
-
-        .sheet-list p.active {
-        background: linear-gradient(90deg, #2563eb, #9333ea);
-        /* 💡 biru ke ungu */
-        color: white;
-        font-weight: bold;
-
-        }
-
-        .sheet-preview {
-        flex: 3;
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        }
-
-        .sheet-preview iframe {
-        width: 100%;
-        height: 70vh;
-        border: none;
-        border-radius: 0 0 12px 12px;
-        }
-
-        /* Tombol fullscreen */
-
-        .sheet-preview button {
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        padding: 6px 12px;
-        font-size: 14px;
-        background: #3b82f6;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: background 0.2s ease;
-        z-index: 10;
-        }
-
-        .sheet-preview button:hover {
-        background: #1e40af;
-        }
-
-        /* ================= GALLERY ================= */
-
-        .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        margin: 20px;
-        }
-
-        .gallery img {
-        width: 100%;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .gallery img:hover {
-        transform: scale(1.05) rotate(1deg);
-        box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
-        /* 💡 pink glow */
-        }
-        /* lightbox */
-
-        #lightbox {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.8);
-        justify-content: center;
-        align-items: center;
-        z-index: 2000;
-        }
-
-        .lightbox-content {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        /* tetap start supaya nempel atas */
-        gap: 15px;
-        background: #FFFFFF;
-        padding: 25px;
-        border-radius: 12px;
-        width: 80vw;
-        height: 80vh;
-        max-width: 1200px;
-        max-height: 800px;
-        box-sizing: border-box;
-        overflow: hidden;
-        }
-
-        .lightbox-media {
-        display: flex;
-        justify-content: flex-start;
-        /* gambar kiri, teks kanan */
-        align-items: flex-start;
-        /* teks nempel atas */
-        gap: 20px;
-        max-width: 100%;
-        }
-
-        .lightbox-media img {
-        max-width: 60%;
-        max-height: 100%;
-        object-fit: contain;
-        border-radius: 8px;
-        }
-
-        .lightbox-text {
-        flex: 1;
-        /* biar teks ambil sisa ruang */
-        font-size: 16px;
-        line-height: 1.6;
-        color: black;
-        border-radius: 5px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        /* biar scrollbar horizontal hilang */
-        max-width: 100%;
-        /* posisi fix kanan */
-        padding-left: 10px;
-        font-family: Poppins;
-        background: #ffff7f;
-        }
-
-        .lightbox-prev,
-        .lightbox-next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        color: white;
-        font-size: 40px;
-        font-weight: bold;
-        padding: 10px;
-        user-select: none;
-        transition: 0.3s;
-        }
-
-        .lightbox-prev:hover,
-        .lightbox-next:hover {
-        color: #f1f1f1;
-        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-        }
-
-        .lightbox-prev {
-        left: 10px;
-        }
-
-        .lightbox-next {
-        right: 10px;
-        }
-
-  /* ================= GOOGLE FORM ================= */
-
-        .google-form-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        margin: 20px;
-        text-align: center;
-
-        }
-
-        .form {
-        flex: 1 1 auto;
-        background: linear-gradient(135deg, #f9fafb, #e0f2fe);
-        border-radius: 12px;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.12);
-
-        width: 250px;
-
-        transition: all 0.4s ease; /* smooth transition */
-        padding: 0px 20px 14px 14px;
-        gap: 10px;
-
-
-        }
-
-        .form:hover {
-        transform: scale(1.03); /* scale ringan */
-        box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-        background: linear-gradient(135deg, #dbeafe, #a7f3d0); /* gradient halus */
-        }
-
-        {
-        color: #1e3a8a;
-        font-size: 20px;
-        margin-bottom: 15px;
-        font-weight: bold;
-        }
-
-        .form h2 {
-        color: #1e3a8a;
-        font-size: 22px;
-        font-family: 'Poppins', sans-serif; /* font modern */
-        font-weight: 600;
-        margin-bottom: 12px;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.2); /* bayangan lembut */
-
-        padding-left: 10px;
-        transition: all 0.3s ease; /* animasi halus */
-        margin-top: 10px;
-
-        }
-
-        .form h2:hover {
-        color: #3b82f6; /* berubah warna saat hover */
-        transform: scale(1.03); /* sedikit bergeser */
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-        }
-
-
-
-        .form a {
-        font-size: 14px;
-        display: block;
-        background: #f9fafb;
-        padding: 10px;
-        margin-bottom: 8px;
-        border-radius: 8px;
-        color: #1e293b;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-
-        .form a:hover {
-        background: linear-gradient(90deg, #3b82f6, #10b981);
-        color: white;
-        transform: scale(1.03);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.25);
-        }
-
-        /* ================= VIDEO ================= */
-
-        .video-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        /* selalu 4 kolom */
-        gap: 30px;
-        }
-
-        .hover-video {
-        width: 100%;
-        /* otomatis isi kolom */
-        border: 4px solid #333;
-        border-radius: 12px;
-        transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-        cursor: pointer;
-        }
-
-        .hover-video:hover {
-        transform: scale(1.08);
-        border-color: #f59e0b;
-        /* 💡 oranye */
-        box-shadow: 0 8px 20px rgba(250, 204, 21, 0.6);
-        /* 💡 kuning glow */
-        }
-
-        .video-container video {
-        width: 100%;
-        border-radius: 8px;
-        background: #000;
-        margin-bottom: 30px;
-        box-shadow: 0 12px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        .video-wrapper {
-        position: relative;
-        display: inline-block;
-        }
-
-        .video-text {
-        position: absolute;
-        top: 10px;
-        left: 52%;
-        transform: translateX(-50%);
-        background: rgba(0, 0, 0, 0.6);
-        color: white;
-        padding: 5px 20px;
-        border-radius: 6px;
-        font-size: 14px;
-        font-weight: bold;
-        text-align: center;
-        min-width: 180px;
-        /* kotak minimal */
-        }
-        /* ================= RESPONSIVE ================= */
-        @media (max-width: 1024px) {
-          .video-container {
-            grid-template-columns: repeat(2, 1fr); /* tablet 2 kolom */
-          }
-
-          .sheet-layout {
-            flex-direction: column;
-          }
-
-          .sheet-list {
-            max-width: 100%;
-            order: 2; /* daftar pindah ke bawah */
-          }
-
-          .sheet-preview {
-            order: 1;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .navbar {
-            flex-wrap: wrap;
-          }
-
-          .menu {
             display: none;
             flex-direction: column;
-            width: 100%;
-            background: linear-gradient(90deg, #3b82f6, #9333ea);
-            padding: 10px 0;
-            text-align: center;
-          }
-
-          .menu.active {
-            display: flex; /* muncul saat klik hamburger */
-          }
-
-          .hamburger {
+            cursor: pointer;
+            gap: 4px;
+        }
+        
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+        }
+        /* ================= FILE EXCEL ================= */
+        
+        .row {
             display: flex;
-          }
-
-          .video-container {
-            grid-template-columns: 1fr; /* hp 1 kolom */
-          }
-
-          .gallery {
-            grid-template-columns: 1fr; /* galeri 1 kolom */
-          }
-
-          .lightbox-content {
-            flex-direction: column;
-            width: 95%;
-            height: 90%;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px;
+        }
+        
+        .col {
+            background: linear-gradient(135deg, #f9fafb, #e0f2fe);
+            border-radius: 12px;
+            padding: 10px 15px;
+            flex: 1 1 300px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+            /* smooth transition */
+        }
+        
+        .col h2 {
+            color: #1e3a8a;
+            font-size: 22px;
+            font-family: 'Poppins', sans-serif;
+            /* font modern */
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            /* bayangan lembut */
+            border-left: 4px solid #1e3a8a;
+            /* garis samping */
+            padding-left: 10px;
+            transition: all 0.3s ease;
+            /* animasi halus */
+            margin-top: 10px;
+        }
+        
+        .col h2:hover {
+            color: #3b82f6;
+            /* berubah warna saat hover */
+            transform: translateX(5px);
+            /* sedikit bergeser */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .col a {
+            font-size: 14px;
+            display: block;
+            background: #f9fafb;
             padding: 10px;
-          }
-
-          .lightbox-media {
+            margin-bottom: 8px;
+            border-radius: 8px;
+            color: #1e293b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .col a:hover {
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            color: white;
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+        }
+        /* ================= SMOOTH HOVER ================= */
+        
+        .col:hover {
+            transform: scale(1.03);
+            /* scale ringan */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            background: linear-gradient(135deg, #dbeafe, #a7f3d0);
+            /* gradient halus */
+        }
+        /* ================= GOOGLE SHEET PREVIEW ================= */
+        
+        .content {
+            background: linear-gradient(135deg, #f9fafb, #e0f2fe);
+            border-radius: 12px;
+            margin: 20px;
+            padding: 10px 15px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .content h2 {
+            color: #1e3a8a;
+            font-size: 22px;
+            font-family: 'Poppins', sans-serif;
+            /* font modern */
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            /* bayangan lembut */
+            border-left: 4px solid #1e3a8a;
+            /* garis samping */
+            padding-left: 10px;
+            transition: all 0.3s ease;
+            /* animasi halus */
+        }
+        
+        .content h2:hover {
+            color: #3b82f6;
+            /* berubah warna saat hover */
+            transform: translateX(5px);
+            /* sedikit bergeser */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .sheet-layout {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .sheet-list {
+            flex: 1;
+            max-width: 280px;
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            /* smooth transition */
+        }
+        
+        .sheet-list p {
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            color: #1e293b;
+            transition: all 0.3s ease;
+            /* smooth transition */
+            box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        .sheet-list p:hover {
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            color: white;
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+        }
+        
+        .sheet-list p.active {
+            background: linear-gradient(90deg, #2563eb, #9333ea);
+            /* 💡 biru ke ungu */
+            color: white;
+            font-weight: bold;
+        }
+        
+        .sheet-preview {
+            flex: 3;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
             flex-direction: column;
+        }
+        
+        .sheet-preview iframe {
+            width: 100%;
+            height: 70vh;
+            border: none;
+            border-radius: 0 0 12px 12px;
+        }
+        /* Tombol fullscreen */
+        
+        .sheet-preview button {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 6px 12px;
+            font-size: 14px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            z-index: 10;
+        }
+        
+        .sheet-preview button:hover {
+            background: #1e40af;
+        }
+        /* ================= GALLERY ================= */
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px;
+        }
+        
+        .gallery img {
+            width: 100%;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
+            /* 💡 pink glow */
+        }
+        /* lightbox */
+        
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
             align-items: center;
-          }
-
-          .lightbox-media img {
+            z-index: 2000;
+        }
+        
+        .lightbox-content {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            /* tetap start supaya nempel atas */
+            gap: 15px;
+            background: #FFFFFF;
+            padding: 25px;
+            border-radius: 12px;
+            width: 80vw;
+            height: 80vh;
+            max-width: 1200px;
+            max-height: 800px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        
+        .lightbox-media {
+            display: flex;
+            justify-content: flex-start;
+            /* gambar kiri, teks kanan */
+            align-items: flex-start;
+            /* teks nempel atas */
+            gap: 20px;
             max-width: 100%;
-            max-height: 60vh;
-          }
-
-          .lightbox-text {
-            max-height: 30vh;
-            font-size: 14px;
-          }
         }
-
-        @media (max-width: 480px) {
-          .logo {
-            font-size: 20px;
-          }
-
-          .menu li a {
-            font-size: 14px;
-          }
-
-          .col h2,
-          .content h2,
-          .form h2 {
-            font-size: 18px;
-          }
-
-          .video-text {
-            font-size: 12px;
-            min-width: 120px;
-          }
+        
+        .lightbox-media img {
+            max-width: 60%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
         }
-
-
-
-
-
-        </style>
-        </head>
-
-        <body>
-            <!-- NAVBAR -->
-            <nav class="navbar">
-                <div class="logo">Company Database</div>
-                <ul class="menu" id="menu">
-                    <!-- ✅ tambahkan id="menu" -->
-                    <li><a href="#Excel">📁 File Excel</a></li>
-                    <li><a href="#Sheet">📄 Google Sheet</a></li>
-                    <li><a href="#Form">📝 Google Form</a></li>
-                    <li><a href="#Foto">🖼️ My Foto</a></li>
-                    <li><a href="#Video">🎥 My Video</a></li>
-                </ul>
-                <div class="hamburger" onclick="toggleMenu()">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </nav>
-            <div></div>
-            <!-- FILE EXCEL -->
-            <div class="row" id="Excel">
-                <div class="col">
-                    <h2>File Excel</h2>
-                    <a href="https://docs.google.com/spreadsheets/d/10HD_t_v6G7TAALkkpCQMXrkg7bqOyx_X/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true">Agregate Data</a>
-                    <a href="https://docs.google.com/spreadsheets/d/1eHScL1YZAmQuErAGkiQrWgy88Br_Dwzt/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true">Harga Tiket Penerbangan</a>
-                    <a href="https://docs.google.com/spreadsheets/d/16gQXL60OuuWmb5_wGBtBsgLjdxO86CH_/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true">Data Gaji Pegawai</a>
-                </div>
-                <div class="col">
-                    <h2>File Excel</h2>
-                    <a href="https://docs.google.com/spreadsheets/d/1pAJ5vfzcskweYRrjtXGPKAa1vZBrOcrw/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true">Cara Menggunakan Wildcard</a>
-                    <a href="https://docs.google.com/spreadsheets/d/1rjTEgQ-P2QVgZiL7PezRkHPgvH1qsRw2/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true"> Data Karyawan Baru </a>
-                    <a href="https://docs.google.com/spreadsheets/d/13EFmIi4OcWTiF3yB7elc2KrvExk8a7ZR/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true"> Countif Sumif Exercises</a>
-                </div>
-                <div class="col">
-                    <h2>File Excel</h2>
-                    <a href="https://docs.google.com/spreadsheets/d/1awJkTslHrxuHkhuXqea5O8oX02HBwIzj/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true">Basic Excel Formulas</a>
-                    <a href="https://docs.google.com/spreadsheets/d/1mPaybZ9TWzudV44xjLYhtTQoqXvKpP8V/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true">Data Penjualan Handphone</a>
-                    <a href="https://docs.google.com/spreadsheets/d/1gAZ4Skmsg4MB_dwXyXCHwal2QrP88KE1/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true">Data Penjualan Sepedamotor</a>
-                </div>
-            </div>
-            <!-- GOOGLE SHEET -->
-            <div class="content" id="Sheet">
-                <h2>Google Sheet Preview</h2>
-                <div class="sheet-layout">
-                    <div class="sheet-list">
-                        <p onclick="loadSheet('https://docs.google.com/spreadsheets/d/e/2PACX-1vTE-UTNk7TfyWP0lbIJYXrdcF5MU-47ZHcIFjE-_xMdPUu8WwZCwNd37C8baSn2kHvhk0VODuKazWFC/pubhtml')">
-                            Powder Coating Process Monitoring
-                        </p>
-                        <p onclick="loadSheet('https://docs.google.com/spreadsheets/d/e/2PACX-1vQUbuKcxcQH1EHdqVVh3hjIRTpC1DAZHKJFMonYMZx01kBAw9Xr8FPkmpVfDEbs82W1O2RhnrB-cpAs/pubhtml')">
-                            Insiden dan Permasalahan Kerja
-                        </p>
-                        <p onclick="loadSheet('https://docs.google.com/spreadsheets/d/e/2PACX-1vReSjV4eOxzfASG08Rl_hux1oxkZ_MjOlSL8JjyDpci2vA8T8LbAPGbTYQHdljO5doDrkmbZzIowiP6/pubhtml')">
-                            Daftar Powder By Brand 2025
-                        </p>
-                        <p onclick="loadSheet('https://docs.google.com/spreadsheets/d/e/2PACX-1vRWZdOypVmkYTrwbZTtVc7L9Q1OVE0k3dX-TxZNujz7ZiZk2DRsJkfUPx7FEK9YJxx_q-tysALACmq-/pubhtml')">
-                            Total Penggunaan Gas Elpiji
-                        </p>
-                        <p onclick="loadSheet('https://docs.google.com/spreadsheets/d/e/2PACX-1vQRbfy6W5X3bM1O_fRA3A2DYkMD7A3YHOm5dNqLrwpmVOZp01TUhw9bsUct-zCDBCZnfn18t3wZZYcK/pubhtml')">
-                            Keuangan Agustus 2025
-                        </p>
-                        <p onclick="loadSheet('https://docs.google.com/spreadsheets/d/e/2PACX-1vQR1Etp9Rqx2r_-nO5LgKT1otfmnBnBVKVzWkW8V05gzCwKyq0v7dTX-gerQAH82WhTDrvk8U6LiFU3/pubhtml')">
-                            Data Analysis
-                        </p>
-                    </div>
-                    <div class="sheet-preview" id="sheetPreview">
-                        <button onclick="goFullScreen()">⛶ Fullscreen</button>
-                        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTE-UTNk7TfyWP0lbIJYXrdcF5MU-47ZHcIFjE-_xMdPUu8WwZCwNd37C8baSn2kHvhk0VODuKazWFC/pubhtml" id="sheetFrame"></iframe>
-                        <!-- ✅ langsung load sheet pertama -->
-                    </div>
-                </div>
-            </div>
-            <div class="google-form-container" id="Form">
-                <div class="form">
-                    <h2>Google Form</h2>
-                    <a href="https://forms.gle/MnMFtaZ2sjtRY97p6" target="_blank">
-                        Monitoring Progress Powder Coating
-                    </a>
-                </div>
-                <div class="form">
-                    <h2>Google Form</h2>
-                    <a href="https://forms.gle/569QvpLXcN2Pv2fXA" target="_blank">
-                        Insiden & Permasalahan Kerja
-                    </a>
-                </div>
-                <div class="form">
-                    <h2>Google Form</h2>
-                    <a href="https://forms.gle/rSPcMJoda8d1BJ3q8" target="_blank">
-                        Daftar Powder By Brand 2025
-                    </a>
-                </div>
-            </div>
-            <!-- GALERI FOTO -->
-            <div class="content" id="Foto">
-                <h2>Gallery Foto</h2>
-                <div class="gallery">
-                    <img src="image/panel_esi.jpg" alt="" data-desc="Type Powder : White Textured">
-                    <img src="image/rangka_meja_depan.jpg" alt="" data-desc="Type Powder : Black Doff">
-                    <img src="image/panel_candra.jpg" alt="" data-desc="Type Powder : Red Textured & Grey Textured">
-                </div>
-            </div>
-            <!-- lightbox -->
-            <div id="lightbox">
-                <div class="lightbox-content">
-                    <span class="lightbox-prev">&#10094;</span>
-                    <!-- wrapper gambar + teks -->
-                    <div class="lightbox-media">
-                        <img id="lightbox-img" src="" alt="">
-                        <div class="lightbox-text" id="lightbox-text"></div>
-                    </div>
-                    <span class="lightbox-next">&#10095;</span>
-                </div>
-            </div>
-            <!-- VIDEO -->
-            <div class="content" id="Video">
-                <h2>Gallery Video</h2>
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <video class="hover-video" loop width="300">
-                            <source src="video/Invoice Otomatis.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-text">Invoice</div>
-                    </div>
-                    <div class="video-wrapper">
-                        <video class="hover-video" loop width="300">
-                            <source src="video/bar_char.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-text">Bar Char</div>
-                    </div>
-                    <div class="video-wrapper">
-                        <video class="hover-video" loop width="300">
-                            <source src="video/query_for_sum.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-text">Query For Sum</div>
-                    </div>
-                    <div class="video-wrapper">
-                        <video class="hover-video" loop width="300">
-                            <source src="video/Excel Dynamic Char.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-text">Dynamic Char</div>
-                    </div>
-                    <div class="video-wrapper">
-                        <video class="hover-video" loop width="300">
-                            <source src="video/1.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-text">Wild Char</div>
-                    </div>
-                    <div class="video-wrapper">
-                        <video class="hover-video" loop width="300">
-                            <source src="video/2.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-text">Find & Replace</div>
-                    </div>
-                    <div class="video-wrapper">
-                        <video class="hover-video" loop width="300">
-                            <source src="video/3.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-text">Go To Special Blank</div>
-                    </div>
-                    <div class="video-wrapper">
-                        <video class="hover-video" loop width="300">
-                            <source src="video/4.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-text">Jam Kerja</div>
-                    </div>
-                    <div class="video-wrapper">
-                        <video class="hover-video" loop width="300">
-                            <source src="video/5.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-text">Absen Manual</div>
-                    </div>
-                    <div class="video-wrapper">
-                        <video class="hover-video" loop width="300">
-                            <source src="video/6.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-text">Project Tracker</div>
-                    </div>
-                    <div class="video-wrapper">
-                        <video class="hover-video" loop width="300">
-                            <source src="video/7.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-text">Inventory Otomatis</div>
-                    </div>
-                    <div class="video-wrapper">
-                        <video class="hover-video" loop width="300">
-                            <source src="video/8.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-text">Karyawan Telat</div>
-                    </div>
-                    <div class="video-wrapper">
-                        <video class="hover-video" loop width="300">
-                            <source src="video/1A.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-text">Excel Dynamic Char</div>
-                    </div>
-                    <div class="video-wrapper">
-                        <video class="hover-video" loop width="300">
-                            <source src="video/4A.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-text">Excel Radial Chart</div>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <script>
-            const images = document.querySelectorAll(".gallery img");
-            const lightbox = document.getElementById("lightbox");
-            const lightboxImg = document.getElementById("lightbox-img");
-            const lightboxText = document.getElementById("lightbox-text");
-
-            let currentIndex = 0;
-
-            function openLightbox(index) {
-                currentIndex = index;
-                lightbox.style.display = "flex";
-                lightboxImg.src = images[index].src;
-                lightboxText.innerText = images[index].dataset.desc || "Tidak ada deskripsi";
+        
+        .lightbox-text {
+            flex: 1;
+            /* biar teks ambil sisa ruang */
+            font-size: 16px;
+            line-height: 1.6;
+            color: black;
+            border-radius: 5px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            /* biar scrollbar horizontal hilang */
+            max-width: 100%;
+            /* posisi fix kanan */
+            padding-left: 10px;
+            font-family: Poppins;
+            background: #ffff7f;
+        }
+        
+        .lightbox-prev,
+        .lightbox-next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            padding: 10px;
+            user-select: none;
+            transition: 0.3s;
+        }
+        
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            color: #f1f1f1;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+        
+        .lightbox-prev {
+            left: 10px;
+        }
+        
+        .lightbox-next {
+            right: 10px;
+        }
+        /* ================= GOOGLE FORM ================= */
+        
+        .google-form-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px;
+            text-align: center;
+        }
+        
+        .form {
+            flex: 1 1 auto;
+            background: linear-gradient(135deg, #f9fafb, #e0f2fe);
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+            width: 250px;
+            transition: all 0.4s ease;
+            /* smooth transition */
+            padding: 0px 20px 14px 14px;
+            gap: 10px;
+        }
+        
+        .form:hover {
+            transform: scale(1.03);
+            /* scale ringan */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            background: linear-gradient(135deg, #dbeafe, #a7f3d0);
+            /* gradient halus */
+        }
+        
+        .form h2 {
+            color: #1e3a8a;
+            font-size: 22px;
+            font-family: 'Poppins', sans-serif;
+            /* font modern */
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            /* bayangan lembut */
+            padding-left: 10px;
+            transition: all 0.3s ease;
+            /* animasi halus */
+            margin-top: 10px;
+        }
+        
+        .form h2:hover {
+            color: #3b82f6;
+            /* berubah warna saat hover */
+            transform: scale(1.03);
+            /* sedikit bergeser */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .form a {
+            font-size: 14px;
+            display: block;
+            background: #f9fafb;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            color: #1e293b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .form a:hover {
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            color: white;
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+        }
+        /* ================= VIDEO ================= */
+        
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* selalu 4 kolom */
+            gap: 30px;
+        }
+        
+        .hover-video {
+            width: 100%;
+            /* otomatis isi kolom */
+            border: 4px solid #333;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            cursor: pointer;
+        }
+        
+        .hover-video:hover {
+            transform: scale(1.08);
+            border-color: #f59e0b;
+            /* 💡 oranye */
+            box-shadow: 0 8px 20px rgba(250, 204, 21, 0.6);
+            /* 💡 kuning glow */
+        }
+        
+        .video-container video {
+            width: 100%;
+            border-radius: 8px;
+            background: #000;
+            margin-bottom: 30px;
+            box-shadow: 0 12px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .video-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .video-text {
+            position: absolute;
+            top: 10px;
+            left: 52%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            min-width: 180px;
+            /* kotak minimal */
+        }
+        /* ================= RESPONSIVE ================= */
+        
+        @media (max-width: 1024px) {
+            .video-container {
+                grid-template-columns: repeat(2, 1fr);
+                /* tablet 2 kolom */
             }
+            .sheet-layout {
+                flex-direction: column;
+            }
+            .sheet-list {
+                max-width: 100%;
+                order: 2;
+                /* daftar pindah ke bawah */
+            }
+            .sheet-preview {
+                order: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: linear-gradient(90deg, #3b82f6, #9333ea);
+                padding: 10px 0;
+                text-align: center;
+            }
+            .menu.active {
+                display: flex;
+                /* muncul saat klik hamburger */
+            }
+            .hamburger {
+                display: flex;
+            }
+            .video-container {
+                grid-template-columns: 1fr;
+                /* hp 1 kolom */
+            }
+            .gallery {
+                grid-template-columns: 1fr;
+                /* galeri 1 kolom */
+            }
+            .lightbox-content {
+                flex-direction: column;
+                width: 95%;
+                height: 90%;
+                padding: 10px;
+            }
+            .lightbox-media {
+                flex-direction: column;
+                align-items: center;
+            }
+            .lightbox-media img {
+                max-width: 100%;
+                max-height: 60vh;
+            }
+            .lightbox-text {
+                max-height: 30vh;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 20px;
+            }
+            .menu li a {
+                font-size: 14px;
+            }
+            .col h2,
+            .content h2,
+            .form h2 {
+                font-size: 18px;
+            }
+            .video-text {
+                font-size: 12px;
+                min-width: 120px;
+            }
+        }
+    </style>
+</head>
 
-            // klik thumbnail
-            images.forEach((img, index) => {
-                img.addEventListener("click", () => openLightbox(index));
-            });
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">Company Database</div>
+        <ul class="menu" id="menu">
+            <!-- ✅ tambahkan id="menu" -->
+            <li><a href="#Excel">📁 File Excel</a></li>
+            <li><a href="#Sheet">📄 Google Sheet</a></li>
+            <li><a href="#Form">📝 Google Form</a></li>
+            <li><a href="#Foto">🖼️ My Foto</a></li>
+            <li><a href="#Video">🎥 My Video</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+    <div></div>
+    <!-- FILE EXCEL -->
+    <div class="row" id="Excel">
+        <div class="col">
+            <h2>File Excel</h2>
+            <a href="https://docs.google.com/spreadsheets/d/10HD_t_v6G7TAALkkpCQMXrkg7bqOyx_X/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true">Agregate Data</a>
+            <a href="https://docs.google.com/spreadsheets/d/1eHScL1YZAmQuErAGkiQrWgy88Br_Dwzt/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true">Harga Tiket Penerbangan</a>
+            <a href="https://docs.google.com/spreadsheets/d/16gQXL60OuuWmb5_wGBtBsgLjdxO86CH_/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true">Data Gaji Pegawai</a>
+        </div>
+        <div class="col">
+            <h2>File Excel</h2>
+            <a href="https://docs.google.com/spreadsheets/d/1pAJ5vfzcskweYRrjtXGPKAa1vZBrOcrw/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true">Cara Menggunakan Wildcard</a>
+            <a href="https://docs.google.com/spreadsheets/d/1rjTEgQ-P2QVgZiL7PezRkHPgvH1qsRw2/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true"> Data Karyawan Baru </a>
+            <a href="https://docs.google.com/spreadsheets/d/13EFmIi4OcWTiF3yB7elc2KrvExk8a7ZR/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true"> Countif Sumif Exercises</a>
+        </div>
+        <div class="col">
+            <h2>File Excel</h2>
+            <a href="https://docs.google.com/spreadsheets/d/1awJkTslHrxuHkhuXqea5O8oX02HBwIzj/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true">Basic Excel Formulas</a>
+            <a href="https://docs.google.com/spreadsheets/d/1mPaybZ9TWzudV44xjLYhtTQoqXvKpP8V/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true">Data Penjualan Handphone</a>
+            <a href="https://docs.google.com/spreadsheets/d/1gAZ4Skmsg4MB_dwXyXCHwal2QrP88KE1/edit?usp=drive_link&ouid=116638664434347783590&rtpof=true&sd=true">Data Penjualan Sepeda motor</a>
+        </div>
+    </div>
+    <!-- GOOGLE SHEET -->
+    <div class="content" id="Sheet">
+        <h2>Google Sheet Preview</h2>
+        <div class="sheet-layout">
+            <div class="sheet-list">
+                <p onclick="loadSheet('https://docs.google.com/spreadsheets/d/e/2PACX-1vTE-UTNk7TfyWP0lbIJYXrdcF5MU-47ZHcIFjE-_xMdPUu8WwZCwNd37C8baSn2kHvhk0VODuKazWFC/pubhtml')">
+                    Powder Coating Process Monitoring
+                </p>
+                <p onclick="loadSheet('https://docs.google.com/spreadsheets/d/e/2PACX-1vQUbuKcxcQH1EHdqVVh3hjIRTpC1DAZHKJFMonYMZx01kBAw9Xr8FPkmpVfDEbs82W1O2RhnrB-cpAs/pubhtml')">
+                    Insiden dan Permasalahan Kerja
+                </p>
+                <p onclick="loadSheet('https://docs.google.com/spreadsheets/d/e/2PACX-1vReSjV4eOxzfASG08Rl_hux1oxkZ_MjOlSL8JjyDpci2vA8T8LbAPGbTYQHdljO5doDrkmbZzIowiP6/pubhtml')">
+                    Daftar Powder By Brand 2025
+                </p>
+                <p onclick="loadSheet('https://docs.google.com/spreadsheets/d/e/2PACX-1vRWZdOypVmkYTrwbZTtVc7L9Q1OVE0k3dX-TxZNujz7ZiZk2DRsJkfUPx7FEK9YJxx_q-tysALACmq-/pubhtml')">
+                    Total Penggunaan Gas Elpiji
+                </p>
+                <p onclick="loadSheet('https://docs.google.com/spreadsheets/d/e/2PACX-1vQRbfy6W5X3bM1O_fRA3A2DYkMD7A3YHOm5dNqLrwpmVOZp01TUhw9bsUct-zCDBCZnfn18t3wZZYcK/pubhtml')">
+                    Keuangan Agustus 2025
+                </p>
+                <p onclick="loadSheet('https://docs.google.com/spreadsheets/d/e/2PACX-1vQR1Etp9Rqx2r_-nO5LgKT1otfmnBnBVKVzWkW8V05gzCwKyq0v7dTX-gerQAH82WhTDrvk8U6LiFU3/pubhtml')">
+                    Data Analysis
+                </p>
+            </div>
+            <div class="sheet-preview" id="sheetPreview">
+                <button onclick="goFullScreen()">⛶ Fullscreen</button>
+                <iframe id="sheetFrame" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTE-UTNk7TfyWP0lbIJYXrdcF5MU-47ZHcIFjE-_xMdPUu8WwZCwNd37C8baSn2kHvhk0VODuKazWFC/pubhtml?widget=true&amp;headers=false" width="100%" height="600px" style="border: none;">
+</iframe>
+                <!-- ✅ langsung load sheet pertama -->
+            </div>
+        </div>
+    </div>
+    <div class="google-form-container" id="Form">
+        <div class="form">
+            <h2>Google Form</h2>
+            <a href="https://forms.gle/MnMFtaZ2sjtRY97p6" target="_blank">
+                Monitoring Progress Powder Coating
+            </a>
+        </div>
+        <div class="form">
+            <h2>Google Form</h2>
+            <a href="https://forms.gle/569QvpLXcN2Pv2fXA" target="_blank">
+                Insiden & Permasalahan Kerja
+            </a>
+        </div>
+        <div class="form">
+            <h2>Google Form</h2>
+            <a href="https://forms.gle/rSPcMJoda8d1BJ3q8" target="_blank">
+                Daftar Powder By Brand 2025
+            </a>
+        </div>
+    </div>
+    <!-- GALERI FOTO -->
+    <div class="content" id="Foto">
+        <h2>Gallery Foto</h2>
+        <div class="gallery">
+            <img src="image/panel_esi.jpg" alt="" data-desc="Type Powder : White Textured">
+            <img src="image/rangka_meja_depan.jpg" alt="" data-desc="Type Powder : Black Doff">
+            <img src="image/panel_candra.jpg" alt="" data-desc="Type Powder : Red Textured & Grey Textured">
+        </div>
+    </div>
+    <!-- lightbox -->
+    <div id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-prev">&#10094;</span>
+            <!-- wrapper gambar + teks -->
+            <div class="lightbox-media">
+                <img id="lightbox-img" src="" alt="">
+                <div class="lightbox-text" id="lightbox-text"></div>
+            </div>
+            <span class="lightbox-next">&#10095;</span>
+        </div>
+    </div>
+    <!-- VIDEO -->
+    <div class="content" id="Video">
+        <h2>Gallery Video</h2>
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video class="hover-video" loop width="300">
+                    <source src="video/Invoice Otomatis.mp4" type="video/mp4">
+                </video>
+                <div class="video-text">Invoice</div>
+            </div>
+            <div class="video-wrapper">
+                <video class="hover-video" loop width="300">
+                    <source src="video/bar_char.mp4" type="video/mp4">
+                </video>
+                <div class="video-text">Bar Char</div>
+            </div>
+            <div class="video-wrapper">
+                <video class="hover-video" loop width="300">
+                    <source src="video/query_for_sum.mp4" type="video/mp4">
+                </video>
+                <div class="video-text">Query For Sum</div>
+            </div>
+            <div class="video-wrapper">
+                <video class="hover-video" loop width="300">
+                    <source src="video/Excel Dynamic Char.mp4" type="video/mp4">
+                </video>
+                <div class="video-text">Dynamic Char</div>
+            </div>
+            <div class="video-wrapper">
+                <video class="hover-video" loop width="300">
+                    <source src="video/1.mp4" type="video/mp4">
+                </video>
+                <div class="video-text">Wild Char</div>
+            </div>
+            <div class="video-wrapper">
+                <video class="hover-video" loop width="300">
+                    <source src="video/2.mp4" type="video/mp4">
+                </video>
+                <div class="video-text">Find & Replace</div>
+            </div>
+            <div class="video-wrapper">
+                <video class="hover-video" loop width="300">
+                    <source src="video/3.mp4" type="video/mp4">
+                </video>
+                <div class="video-text">Go To Special Blank</div>
+            </div>
+            <div class="video-wrapper">
+                <video class="hover-video" loop width="300">
+                    <source src="video/4.mp4" type="video/mp4">
+                </video>
+                <div class="video-text">Jam Kerja</div>
+            </div>
+            <div class="video-wrapper">
+                <video class="hover-video" loop width="300">
+                    <source src="video/5.mp4" type="video/mp4">
+                </video>
+                <div class="video-text">Absen Manual</div>
+            </div>
+            <div class="video-wrapper">
+                <video class="hover-video" loop width="300">
+                    <source src="video/6.mp4" type="video/mp4">
+                </video>
+                <div class="video-text">Project Tracker</div>
+            </div>
+            <div class="video-wrapper">
+                <video class="hover-video" loop width="300">
+                    <source src="video/7.mp4" type="video/mp4">
+                </video>
+                <div class="video-text">Inventory Otomatis</div>
+            </div>
+            <div class="video-wrapper">
+                <video class="hover-video" loop width="300">
+                    <source src="video/8.mp4" type="video/mp4">
+                </video>
+                <div class="video-text">Karyawan Telat</div>
+            </div>
+            <div class="video-wrapper">
+                <video class="hover-video" loop width="300">
+                    <source src="video/1A.mp4" type="video/mp4">
+                </video>
+                <div class="video-text">Excel Dynamic Char</div>
+            </div>
+            <div class="video-wrapper">
+                <video class="hover-video" loop width="300">
+                    <source src="video/4A.mp4" type="video/mp4">
+                </video>
+                <div class="video-text">Excel Radial Chart</div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        const images = document.querySelectorAll(".gallery img");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxText = document.getElementById("lightbox-text");
 
-            // tombol navigasi
-            document.querySelector(".lightbox-prev").addEventListener("click", () => {
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
-                openLightbox(currentIndex);
-            });
+        let currentIndex = 0;
 
-            document.querySelector(".lightbox-next").addEventListener("click", () => {
-                currentIndex = (currentIndex + 1) % images.length;
-                openLightbox(currentIndex);
-            });
+        function openLightbox(index) {
+            currentIndex = index;
+            lightbox.style.display = "flex";
+            lightboxImg.src = images[index].src;
+            lightboxText.innerText = images[index].dataset.desc || "Tidak ada deskripsi";
+        }
 
-            // navigasi keyboard
-            document.addEventListener("keydown", (e) => {
-                if (lightbox.style.display === "flex") {
-                    if (e.key === "ArrowLeft") {
-                        document.querySelector(".lightbox-prev").click();
-                    } else if (e.key === "ArrowRight") {
-                        document.querySelector(".lightbox-next").click();
-                    } else if (e.key === "Escape") {
-                        lightbox.style.display = "none";
-                    }
-                }
-            });
+        // klik thumbnail
+        images.forEach((img, index) => {
+            img.addEventListener("click", () => openLightbox(index));
+        });
 
-            // klik area gelap untuk menutup
-            lightbox.addEventListener("click", (e) => {
-                if (e.target === lightbox) {
+        // tombol navigasi
+        document.querySelector(".lightbox-prev").addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            openLightbox(currentIndex);
+        });
+
+        document.querySelector(".lightbox-next").addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            openLightbox(currentIndex);
+        });
+
+        // navigasi keyboard
+        document.addEventListener("keydown", (e) => {
+            if (lightbox.style.display === "flex") {
+                if (e.key === "ArrowLeft") {
+                    document.querySelector(".lightbox-prev").click();
+                } else if (e.key === "ArrowRight") {
+                    document.querySelector(".lightbox-next").click();
+                } else if (e.key === "Escape") {
                     lightbox.style.display = "none";
                 }
-            });
-
-            function goFullScreen() {
-                var iframe = document.getElementById("sheetFrame");
-                if (!iframe.src) return; // kalau kosong, jangan fullscreen
-                if (iframe.requestFullscreen) {
-                    iframe.requestFullscreen();
-                } else if (iframe.mozRequestFullScreen) {
-                    iframe.mozRequestFullScreen();
-                } else if (iframe.webkitRequestFullscreen) {
-                    iframe.webkitRequestFullscreen();
-                } else if (iframe.msRequestFullscreen) {
-                    iframe.msRequestFullscreen();
-                }
             }
+        });
 
-            function loadSheet(url) {
-                document.getElementById('sheetFrame').src = url;
+        // klik area gelap untuk menutup
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = "none";
             }
+        });
 
-            document.addEventListener("DOMContentLoaded", () => {
-                // default load pertama
-                loadSheet('');
-            });
-
-            // aktifkan sheet list
-            document.querySelectorAll('.sheet-list p').forEach(el => {
-                el.addEventListener('click', function(event) {
-                    document.querySelectorAll('.sheet-list p').forEach(e => e.classList.remove('active'));
-                    event.target.classList.add('active');
-                });
-            });
-
-            // Ambil semua elemen video dengan class "hover-video"
-            const videos = document.querySelectorAll(".hover-video");
-
-            videos.forEach(video => {
-                video.addEventListener("mouseenter", () => {
-                    video.play();
-                    video.setAttribute("controls", "controls"); // tampilkan controls
-                });
-
-                video.addEventListener("mouseleave", () => {
-                    video.pause();
-                    video.currentTime = 0; // opsional: kembali ke awal
-                    video.removeAttribute("controls"); // sembunyikan controls
-                });
-            });
-
-            function toggleMenu() {
-                document.getElementById("menu").classList.toggle("active");
+        function goFullScreen() {
+            var iframe = document.getElementById("sheetFrame");
+            if (!iframe.src) return; // kalau kosong, jangan fullscreen
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) {
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) {
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) {
+                iframe.msRequestFullscreen();
             }
-            </script>
-        </body>
+        }
 
-        </html>
+        function loadSheet(url) {
+            document.getElementById('sheetFrame').src = url;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // otomatis set menu pertama aktif
+            const firstMenu = document.querySelector('.sheet-list p');
+            if (firstMenu) {
+                firstMenu.classList.add("active");
+                loadSheet(firstMenu.getAttribute("onclick").match(/'(.*?)'/)[1]);
+            }
+        });
+
+        // aktifkan sheet list
+        document.querySelectorAll('.sheet-list p').forEach(el => {
+            el.addEventListener('click', function(event) {
+                document.querySelectorAll('.sheet-list p').forEach(e => e.classList.remove('active'));
+                event.target.classList.add('active');
+            });
+        });
+
+        // Ambil semua elemen video dengan class "hover-video"
+        const videos = document.querySelectorAll(".hover-video");
+
+        videos.forEach(video => {
+            video.addEventListener("mouseenter", () => {
+                video.play();
+                video.setAttribute("controls", "controls"); // tampilkan controls
+            });
+
+            video.addEventListener("mouseleave", () => {
+                video.pause();
+                video.currentTime = 0; // opsional: kembali ke awal
+                video.removeAttribute("controls"); // sembunyikan controls
+            });
+        });
+
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+        }
+    </script>
+</body>
+
+</html>

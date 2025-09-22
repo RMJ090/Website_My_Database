@@ -22,12 +22,26 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(90deg, #3b82f6, #9333ea);
-            /* 💡 biru ke ungu */
+            background: linear-gradient(270deg, #1e3a8a, #2563eb, #38bdf8);
+            /* biru navy → biru sedang → biru muda */
+            background-size: 400% 400%;
+            animation: gradientMove 14s ease infinite;
             padding: 12px 24px;
             color: white;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
             line-height: 50px;
+        }
+        
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
         
         .logo {
@@ -57,16 +71,24 @@
         .menu li a {
             font-size: 16px;
             text-decoration: none;
-            color: white;
+            color: #f1f5f9;
+            /* putih keabu-abuan biar lembut */
             font-weight: 500;
-            transition: all 0.3s ease;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+            /* smooth */
         }
         
         .menu li a:hover {
-            color: #facc15;
-            /* 💡 kuning cerah */
-            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.6);
-            transform: translateY(-5px);
+            color: #1e3a8a;
+            /* biru navy */
+            background: #facc15;
+            /* kuning accent */
+            text-shadow: none;
+            /* hilangkan glow biar lebih rapi */
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
         }
         /* Hamburger menu */
         
@@ -98,8 +120,7 @@
             padding: 10px 15px;
             flex: 1 1 300px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-            transition: all 0.4s ease;
-            /* smooth transition */
+            transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.5s ease, background 0.6s ease-in-out;
         }
         
         .col h2 {
@@ -136,24 +157,24 @@
             border-radius: 8px;
             color: #1e293b;
             text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         }
         
         .col a:hover {
             background: linear-gradient(90deg, #3b82f6, #10b981);
             color: white;
-            transform: scale(1.03);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            filter: brightness(1.08);
         }
         /* ================= SMOOTH HOVER ================= */
         
         .col:hover {
-            transform: scale(1.03);
-            /* scale ringan */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
             background: linear-gradient(135deg, #dbeafe, #a7f3d0);
-            /* gradient halus */
+            filter: brightness(1.03);
         }
         /* ================= GOOGLE SHEET PREVIEW ================= */
         
@@ -282,14 +303,13 @@
             width: 100%;
             border-radius: 12px;
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease, filter 0.4s ease-in-out;
         }
         
         .gallery img:hover {
-            transform: scale(1.05) rotate(1deg);
-            box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
-            /* 💡 pink glow */
+            transform: scale(1.07) rotate(1deg);
+            box-shadow: 0 12px 30px rgba(236, 72, 153, 0.5);
+            filter: brightness(1.1) saturate(1.2);
         }
         /* lightbox */
         
@@ -693,6 +713,14 @@
             <img src="image/panel_esi.jpg" alt="" data-desc="Type Powder : White Textured">
             <img src="image/rangka_meja_depan.jpg" alt="" data-desc="Type Powder : Black Doff">
             <img src="image/panel_candra.jpg" alt="" data-desc="Type Powder : Red Textured & Grey Textured">
+
+
+            <img src="image/2292025A.jpg" alt="" data-desc="Example : Example">
+            <img src="image/2292025B.jpg" alt="" data-desc="Example : Example">
+            <img src="image/2292025E.jpg" alt="" data-desc="Example : Example">
+            <img src="image/2292025D.jpg" alt="" data-desc="Example : Example">
+            <img src="image/2292025C.jpg" alt="" data-desc="Example : Example">
+
         </div>
     </div>
     <!-- lightbox -->
